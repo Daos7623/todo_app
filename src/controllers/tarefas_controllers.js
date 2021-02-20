@@ -25,7 +25,7 @@ module.exports = (app, bd) =>
     });
 
     app.post('/tarefas', async (req, resp) =>{
-        let parametro = [req.body.titulo, req.body.descricao, req.body.status, req.params.datacriacao, req.params.id_usuario];
+        let parametro = [req.body.titulo, req.body.descricao, req.body.status, req.body.datacriacao, req.body.id_usuario];
         try{
             const adicionatarefa = await tarefasDao.adicionaTarefa(parametro);
             resp.send(adicionatarefa);
@@ -45,7 +45,7 @@ module.exports = (app, bd) =>
     });
 
     app.put('/tarefas/:id', async (req, resp) => {
-        let parametro = [req.body.titulo, req.body.descricao, req.body.status, req.params.datacriacao, req.params.id_usuario]
+        let parametro = [req.body.titulo, req.body.descricao, req.body.status, req.body.datacriacao, req.body.id_usuario, req.params.id]
         try{
             const atualizatarefa = await tarefasDao.updateTarefa(parametro);
             resp.send(atualizatarefa);
